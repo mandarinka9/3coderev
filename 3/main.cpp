@@ -6,8 +6,8 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "Russian");
 
-    // Ввод параметров
-    cout << "Введите имя файла: ";
+    // Р’РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ
+    cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°: ";
     string filename;
     cin >> filename;
 
@@ -17,28 +17,28 @@ int main() {
         return 1;
     }
 
-    cout << "Введите номер начального города (1-" << city_count << "): ";
+    cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ РіРѕСЂРѕРґР° (1-" << city_count << "): ";
     int start_city;
     cin >> start_city;
 
-    cout << "Введите количество пересадок L: ";
+    cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРµСЃР°РґРѕРє L: ";
     int target_transfers;
     cin >> target_transfers;
 
-    // Проверка входных данных
+    // РџСЂРѕРІРµСЂРєР° РІС…РѕРґРЅС‹С… РґР°РЅРЅС‹С…
     if (start_city < 1 || start_city > city_count) {
-        cerr << "Ошибка: неверный номер начального города" << endl;
+        cerr << "РћС€РёР±РєР°: РЅРµРІРµСЂРЅС‹Р№ РЅРѕРјРµСЂ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ РіРѕСЂРѕРґР°" << endl;
         return 1;
     }
 
-    // Поиск городов
+    // РџРѕРёСЃРє РіРѕСЂРѕРґРѕРІ
     vector<int> reachable_cities = FindReachableCities(
         adjacency_matrix,
         start_city - 1,
         target_transfers
     );
 
-    cout << "Результат: ";
+    cout << "Р РµР·СѓР»СЊС‚Р°С‚: ";
     for (const auto& city : reachable_cities) {
         cout << city << " ";
     }
