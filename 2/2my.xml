@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doxygen version="1.9.1">
+  <compounddef kind="file" id="calctree_8cpp" language="C++">
+    <compoundname>calctree.cpp</compoundname>
+    <includes local="no">fstream</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <briefdescription>
+    <para>Программа для преобразования префиксных выражений в деревья</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Удаляет операции сложения и вычитания, заменяя их вычисленными значениями.</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="calctree.cpp"/>
+  </compounddef>
+
+  <compounddef kind="struct" id="calctree_8cpp_1a1" language="C++">
+    <compoundname>TreeNode</compoundname>
+    <briefdescription>
+    <para>Структура узла дерева выражений</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Хранит значение (число или код операции) и указатели на дочерние узлы.</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>TreeNode</label>
+      </node>
+    </collaborationgraph>
+    <location file="calctree.cpp" line="12"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a2" language="C++">
+    <compoundname>ReadTokensFromFile</compoundname>
+    <param>
+      <type>const string &amp;</type>
+      <declname>filename</declname>
+    </param>
+    <briefdescription>
+    <para>Чтение выражения из файла</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>filename</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Имя файла с префиксным выражением </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>Вектор токенов выражения </para>
+    </simplesect>
+    <simplesect kind="note"><para>Каждый токен - оператор или операнд, разделенные пробелами </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="25"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a3" language="C++">
+    <compoundname>BuildTreeFromPrefix</compoundname>
+    <param>
+      <type>const vector&lt; string &gt; &amp;</type>
+      <declname>tokens</declname>
+    </param>
+    <param>
+      <type>int &amp;</type>
+      <declname>index</declname>
+    </param>
+    <briefdescription>
+    <para>Построение дерева из префиксной записи</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>tokens</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Вектор токенов выражения </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>index</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Текущий индекс в векторе токенов </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>Указатель на корень построенного дерева </para>
+    </simplesect>
+    <simplesect kind="note"><para>Рекурсивная функция </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="44"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a4" language="C++">
+    <compoundname>EvaluateSubtree</compoundname>
+    <param>
+      <type>TreeNode *</type>
+      <declname>node</declname>
+    </param>
+    <briefdescription>
+    <para>Вычисление значения поддерева</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>node</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Корень поддерева </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>Результат вычисления поддерева </para>
+    </simplesect>
+    <simplesect kind="note"><para>Обрабатывает операции: +, -, *, / </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="79"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a5" language="C++">
+    <compoundname>TransformTree</compoundname>
+    <param>
+      <type>TreeNode *</type>
+      <declname>root</declname>
+    </param>
+    <briefdescription>
+    <para>Преобразование дерева (удаление + и -)</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>root</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Корень дерева для преобразования </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>Указатель на новое дерево </para>
+    </simplesect>
+    <simplesect kind="note"><para>Рекурсивно заменяет узлы + и - на их вычисленные значения </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="108"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a6" language="C++">
+    <compoundname>PrintTree</compoundname>
+    <param>
+      <type>const TreeNode *</type>
+      <declname>root</declname>
+    </param>
+    <briefdescription>
+    <para>Печать дерева в инфиксной форме</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>root</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Корень дерева для печати </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="note"><para>Добавляет скобки для обозначения порядка операций </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="126"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a7" language="C++">
+    <compoundname>DeleteTree</compoundname>
+    <param>
+      <type>TreeNode *</type>
+      <declname>root</declname>
+    </param>
+    <briefdescription>
+    <para>Удаление дерева</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>root</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Корень дерева для удаления </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="note"><para>Рекурсивно освобождает память всех узлов </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="146"/>
+  </compounddef>
+
+  <compounddef kind="function" id="calctree_8cpp_1a8" language="C++">
+    <compoundname>main</compoundname>
+    <briefdescription>
+    <para>Главная функция программы</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><simplesect kind="return"><para>0 при успешном выполнении, 1 при ошибках </para>
+    </simplesect>
+    <simplesect kind="note"><para>Выполняет:
+      <orderedlist>
+        <listitem><para>Чтение выражения из файла</para></listitem>
+        <listitem><para>Построение дерева</para></listitem>
+        <listitem><para>Преобразование дерева</para></listitem>
+        <listitem><para>Вывод результатов</para></listitem>
+      </orderedlist>
+    </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="calctree.cpp" line="148"/>
+  </compounddef>
+</doxygen>
