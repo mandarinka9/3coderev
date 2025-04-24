@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doxygen version="1.9.1">
+  <compounddef kind="file" id="morse_8h" language="C++">
+    <compoundname>morse.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">locale</includes>
+    <includes local="no">cctype</includes>
+    <briefdescription>
+    <para>Заголовочный файл для преобразования текста в азбуку Морзе</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Содержит объявления функций и таблицу кодов Морзе для русских букв.</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="morse.h"/>
+  </compounddef>
+
+  <compounddef kind="var" id="morse_8h_1a1" language="C++">
+    <compoundname>MORSE_CODE</compoundname>
+    <briefdescription>
+    <para>Таблица соответствия русских букв азбуке Морзе</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Ключи: русские буквы в верхнем регистре и пробел. Значения: соответствующие коды Морзе.</para>
+    </detaileddescription>
+    <location file="morse.h" line="12"/>
+  </compounddef>
+
+  <compounddef kind="function" id="morse_8h_1a2" language="C++">
+    <compoundname>validateInput</compoundname>
+    <param>
+      <type>char</type>
+      <declname>c</declname>
+    </param>
+    <briefdescription>
+    <para>Проверяет поддерживается ли символ</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>c</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Проверяемый символ </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>true если символ поддерживается, false в противном случае </para>
+    </simplesect>
+    <simplesect kind="note"><para>Выводит ошибку в cerr при неподдерживаемом символе </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="morse.h" line="15"/>
+  </compounddef>
+
+  <compounddef kind="function" id="morse_8h_1a3" language="C++">
+    <compoundname>convertToMorse</compoundname>
+    <param>
+      <type>const string &amp;</type>
+      <declname>input</declname>
+    </param>
+    <param>
+      <type>string &amp;</type>
+      <declname>result</declname>
+    </param>
+    <briefdescription>
+    <para>Преобразует строку в азбуку Морзе</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>input</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Входная строка на русском языке </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>result</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Строка для записи результата </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>true если преобразование успешно, false при ошибке </para>
+    </simplesect>
+    <simplesect kind="note"><para>Выводит ошибки в cerr при неподдерживаемых символах </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="morse.h" line="16"/>
+  </compounddef>
+
+  <compounddef kind="file" id="main_8cpp" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="morse_8h" local="yes">morse.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">string</includes>
+    <briefdescription>
+    <para>Главный модуль программы</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Обрабатывает пользовательский ввод и выводит результаты преобразования.</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="main.cpp"/>
+  </compounddef>
+</doxygen>
