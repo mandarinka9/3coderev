@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doxygen version="1.9.1">
+  <compounddef kind="file" id="graph_8h" language="C++">
+    <compoundname>graph.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includedby refid="graph_8cpp" local="yes">graph.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
+    <briefdescription>
+    <para>Заголовочный файл для работы с графами городов</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Содержит определение структуры графа и функций для поиска маршрутов</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="graph.h"/>
+  </compounddef>
+
+  <compounddef kind="struct" id="graph_8h_1a1" language="C++">
+    <compoundname>CityNode</compoundname>
+    <briefdescription>
+    <para>Структура узла для хранения информации о городе</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Используется в BFS-поиске для учета количества пересадок</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CityNode</label>
+      </node>
+    </collaborationgraph>
+    <location file="graph.h" line="12"/>
+  </compounddef>
+
+  <compounddef kind="function" id="graph_8h_1a2" language="C++">
+    <compoundname>ReadAdjacencyMatrix</compoundname>
+    <param>
+      <type>const string &amp;</type>
+      <declname>filename</declname>
+    </param>
+    <param>
+      <type>vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+      <declname>matrix</declname>
+    </param>
+    <param>
+      <type>int &amp;</type>
+      <declname>city_count</declname>
+    </param>
+    <briefdescription>
+    <para>Читает матрицу смежности из файла</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>filename</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Имя файла с матрицей </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>matrix</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Заполняемая матрица смежности </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>city_count</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Количество городов </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>true если чтение успешно, false при ошибке </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="graph.h" line="20"/>
+  </compounddef>
+
+  <compounddef kind="function" id="graph_8h_1a3" language="C++">
+    <compoundname>FindReachableCities</compoundname>
+    <param>
+      <type>const vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+      <declname>graph</declname>
+    </param>
+    <param>
+      <type>int</type>
+      <declname>start_city</declname>
+    </param>
+    <param>
+      <type>int</type>
+      <declname>max_transfers</declname>
+    </param>
+    <briefdescription>
+    <para>Находит города, достижимые за указанное число пересадок</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>graph</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Матрица смежности (0 - нет пути, 1 - есть путь) </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>start_city</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Начальный город (0-based индекс) </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>max_transfers</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Максимальное число пересадок (L) </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>Вектор с номерами городов (1-based) или [-1] если таких нет </para>
+    </simplesect>
+    <simplesect kind="note"><para>Использует алгоритм поиска в ширину (BFS) </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="graph.h" line="21"/>
+  </compounddef>
+
+  <compounddef kind="file" id="graph_8cpp" language="C++">
+    <compoundname>graph.cpp</compoundname>
+    <includes refid="graph_8h" local="yes">graph.h</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">queue</includes>
+    <briefdescription>
+    <para>Реализация функций для работы с графами городов</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Содержит реализацию чтения матрицы и BFS-поиска маршрутов</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="graph.cpp"/>
+  </compounddef>
+
+  <compounddef kind="file" id="main_8cpp" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="graph_8h" local="yes">graph.h</includes>
+    <includes local="no">iostream</includes>
+    <briefdescription>
+    <para>Главный модуль программы</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Обрабатывает пользовательский ввод и выводит результаты поиска</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="main.cpp"/>
+  </compounddef>
+</doxygen>
