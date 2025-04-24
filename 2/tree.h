@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Структура узла дерева выражений
+// РЎС‚СЂСѓРєС‚СѓСЂР° СѓР·Р»Р° РґРµСЂРµРІР° РІС‹СЂР°Р¶РµРЅРёР№
 struct TreeNode {
     int value;     
     TreeNode* left;  
@@ -15,7 +15,7 @@ struct TreeNode {
     explicit TreeNode(int val) : value(val), left(nullptr), right(nullptr) {}
 };
 
-// Прототипы функций
+// РџСЂРѕС‚РѕС‚РёРїС‹ С„СѓРЅРєС†РёР№
 vector<string> ReadTokensFromFile(const string& filename);
 TreeNode* BuildTreeFromPrefix(const vector<string>& tokens, int& index);
 int EvaluateSubtree(TreeNode* node);
