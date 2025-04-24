@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "Russian");
 
-    cout << "Ââåäèòå èìÿ ôàéëà ñ ïðåôèêñíîé çàïèñüþ: ";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° Ñ Ð¿Ñ€ÐµÑ„Ð¸ÐºÑÐ½Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÑŒÑŽ: ";
     string filename;
     cin >> filename;
 
@@ -21,17 +21,17 @@ int main() {
         return 1;
     }
 
-    cout << "Èñõîäíîå äåðåâî: ";
+    cout << "Ð˜ÑÑ…Ð¾Ð´Ð½Ð¾Ðµ Ð´ÐµÑ€ÐµÐ²Ð¾: ";
     PrintTree(root);
     cout << endl;
 
     TreeNode* transformed_root = TransformTree(root);
 
-    cout << "Ïðåîáðàçîâàííîå äåðåâî: ";
+    cout << "ÐŸÑ€ÐµÐ¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ Ð´ÐµÑ€ÐµÐ²Ð¾: ";
     PrintTree(transformed_root);
     cout << endl;
-    cout << "Óêàçàòåëü íà êîðåíü: " << transformed_root << endl;
-    cout << "Çíà÷åíèå êîðíÿ: " << transformed_root->value << endl;
+    cout << "Ð£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÐºÐ¾Ñ€ÐµÐ½ÑŒ: " << transformed_root << endl;
+    cout << "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÐºÐ¾Ñ€Ð½Ñ: " << transformed_root->value << endl;
 
     DeleteTree(transformed_root);
     return 0;
