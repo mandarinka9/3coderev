@@ -9,8 +9,8 @@ using namespace std;
 const int MAX_CITIES = 25;
 
 struct CityNode {
-    int id;        // Идентификатор города
-    int transfers; // Количество сделанных пересадок
+    int id;        // РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РіРѕСЂРѕРґР°
+    int transfers; // РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРґРµР»Р°РЅРЅС‹С… РїРµСЂРµСЃР°РґРѕРє
 
     CityNode(int city_id, int t) : id(city_id), transfers(t) {}
 };
