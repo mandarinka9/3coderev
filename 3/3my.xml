@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doxygen version="1.9.1">
+  <compounddef kind="file" id="graf6_8cpp" language="C++">
+    <compoundname>graf6.cpp</compoundname>
+    <includes local="no">algorithm</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">queue</includes>
+    <includes local="no">vector</includes>
+    <briefdescription>
+    <para>Программа для поиска городов, достижимых ровно за L пересадок</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Анализирует схему авиационного сообщения между городами, представленную в виде матрицы смежности.</para>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="graf6.cpp"/>
+  </compounddef>
+
+  <compounddef kind="define" id="graf6_8cpp_1a1" language="C++">
+    <compoundname>MAX_CITIES</compoundname>
+    <initializer>25</initializer>
+    <briefdescription>
+    <para>Максимальное количество городов</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Ограничение размера матрицы смежности для предотвращения переполнения памяти.</para>
+    </detaileddescription>
+    <location file="graf6.cpp" line="10"/>
+  </compounddef>
+
+  <compounddef kind="struct" id="graf6_8cpp_1a2" language="C++">
+    <compoundname>CityNode</compoundname>
+    <briefdescription>
+    <para>Структура для хранения информации о городе в очереди поиска</para>
+    </briefdescription>
+    <detaileddescription>
+    <para>Используется в алгоритме BFS для отслеживания количества сделанных пересадок.</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CityNode</label>
+      </node>
+    </collaborationgraph>
+    <location file="graf6.cpp" line="12"/>
+  </compounddef>
+
+  <compounddef kind="function" id="graf6_8cpp_1a3" language="C++">
+    <compoundname>ReadAdjacencyMatrix</compoundname>
+    <param>
+      <type>const string &amp;</type>
+      <declname>filename</declname>
+    </param>
+    <param>
+      <type>vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+      <declname>matrix</declname>
+    </param>
+    <param>
+      <type>int &amp;</type>
+      <declname>city_count</declname>
+    </param>
+    <briefdescription>
+    <para>Чтение матрицы смежности из файла</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>filename</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Путь к файлу с матрицей </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>matrix</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Ссылка на матрицу для заполнения </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>city_count</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Количество городов (заполняется) </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>true при успешном чтении, false при ошибке </para>
+    </simplesect>
+    <simplesect kind="note"><para>Формат файла:
+      <orderedlist>
+        <listitem><para>Первое число - количество городов N</para></listitem>
+        <listitem><para>Далее N×N чисел (0 или 1) - матрица смежности</para></listitem>
+      </orderedlist>
+    </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="graf6.cpp" line="25"/>
+  </compounddef>
+
+  <compounddef kind="function" id="graf6_8cpp_1a4" language="C++">
+    <compoundname>FindReachableCities</compoundname>
+    <param>
+      <type>const vector&lt; vector&lt; int &gt; &gt; &amp;</type>
+      <declname>graph</declname>
+    </param>
+    <param>
+      <type>const int</type>
+      <declname>start_city</declname>
+    </param>
+    <param>
+      <type>const int</type>
+      <declname>max_transfers</declname>
+    </param>
+    <briefdescription>
+    <para>Поиск городов, достижимых за L пересадок</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><parameterlist kind="param"><parameteritem>
+    <parameternamelist>
+    <parametername>graph</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Матрица смежности графа городов </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>start_city</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Индекс начального города (0-based) </para>
+    </parameterdescription>
+    </parameteritem>
+    <parameteritem>
+    <parameternamelist>
+    <parametername>max_transfers</parametername>
+    </parameternamelist>
+    <parameterdescription>
+    <para>Максимальное количество пересадок L </para>
+    </parameterdescription>
+    </parameteritem>
+    </parameterlist>
+    <simplesect kind="return"><para>Вектор номеров городов (1-based) или [-1] если нет подходящих </para>
+    </simplesect>
+    <simplesect kind="note"><para>Использует алгоритм поиска в ширину (BFS) с учетом количества пересадок </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="graf6.cpp" line="60"/>
+  </compounddef>
+
+  <compounddef kind="function" id="graf6_8cpp_1a5" language="C++">
+    <compoundname>main</compoundname>
+    <briefdescription>
+    <para>Главная функция программы</para>
+    </briefdescription>
+    <detaileddescription>
+    <para><simplesect kind="return"><para>0 при успешном выполнении, 1 при ошибках ввода </para>
+    </simplesect>
+    <simplesect kind="note"><para>Выполняет последовательно:
+      <orderedlist>
+        <listitem><para>Чтение матрицы смежности из файла</para></listitem>
+        <listitem><para>Ввод параметров K (город) и L (пересадки)</para></listitem>
+        <listitem><para>Проверку корректности входных данных</para></listitem>
+        <listitem><para>Поиск и вывод результатов</para></listitem>
+      </orderedlist>
+    </para>
+    </simplesect>
+    </para>
+    </detaileddescription>
+    <location file="graf6.cpp" line="98"/>
+  </compounddef>
+</doxygen>
