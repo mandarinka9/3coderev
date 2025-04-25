@@ -12,7 +12,7 @@ using namespace std;
 extern const unordered_map<char, string> MORSE_CODE;
 
 // Проверка, что символ поддерживается таблицей Морзе
-bool validateInput(char c);  // Возвращает false при ошибке
+bool validateInput(char c); 
 
 // Преобразование строки в азбуку Морзе
 bool convertToMorse(const string& input, string& result);
